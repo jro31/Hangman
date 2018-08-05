@@ -1,17 +1,14 @@
 import UIKit
+import GameplayKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var gameWord: UILabel!
-    @IBOutlet var lives: UILabel!
-    @IBOutlet var usedLetters: UILabel!
-    
-    @IBOutlet var chosenLetter: UITextField!
-    @IBAction func submitButton(_ sender: Any) {
-        
-    }
+    @IBOutlet var gameWordLabel: UILabel!
+    @IBOutlet var livesLabel: UILabel!
     
     var allWords = [String]()
+    var questionMarks = ""
+    var livesRemaining = 7
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +21,23 @@ class ViewController: UIViewController {
             }
         }
         
-        print(allWords)
+        startGame()
+    }
+    
+    func startGame() {
+        allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
+        let gameWord = allWords[0]
+        print("Gameword: \(gameWord)")
+        let lettersArray = Array(gameWord) //This breaks-down 'gameWord' into an array of characters
         
+        for _ in lettersArray {
+            questionMarks += "?"
+        }
+        let questionMarksArray = Array(questionMarks) //This breaks-down 'questionMarks' into an array of question marks
+        let startingGameWordLabel = String(questionMarksArray)
+        
+        gameWordLabel.text = startingGameWordLabel
+        livesLabel.text = "\(livesRemaining)"
     }
 
     override func didReceiveMemoryWarning() {
