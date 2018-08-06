@@ -10,6 +10,7 @@ class ViewController: UIViewController {
     var chosenLetterCharacter = Array<Character>()
     
     @IBAction func letterButtonPressed(_ sender: UIButton) {
+        
         chosenLetterString = sender.titleLabel!.text!
         chosenLetterCharacter = Array(chosenLetterString)
         print("Chosen letter character: \(chosenLetterCharacter)")
@@ -20,10 +21,24 @@ class ViewController: UIViewController {
             livesRemaining -= 1
             livesLabel.text = "\(livesRemaining)"
         }
+        
+        sender.isEnabled = false // Disables the button once pressed
+        sender.backgroundColor = UIColor.clear // Makes the button invisible once pressed
+        
+        if !gameWordLabel.text!.contains("?") {
+            let alert = UIAlertController(title: "Congratulations!", message: "You did it", preferredStyle: .alert)
+            let playAgainButton = UIAlertAction(title: "Play again", style: .default) {
+                (action:UIAlertAction!) in
+                
+                self.startGame()
+            }
+            
+            alert.addAction(playAgainButton)
+            present(alert, animated: true)
+        }
     }
     
     var allWords = [String]()
-    var questionMarks = ""
     var livesRemaining = 10
     var gameWord = ""
     var lettersArray = Array<Character>()
@@ -33,6 +48,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startGame()
+    }
+    
+    func startGame() {
         if let wordsPath = Bundle.main.path(forResource: "words", ofType: "txt") {
             if let words = try? String(contentsOfFile: wordsPath) {
                 allWords = words.components(separatedBy: "\n")
@@ -41,13 +60,8 @@ class ViewController: UIViewController {
             }
         }
         
-        livesLabel.text = "\(livesRemaining)"
+        var questionMarks = ""
         
-        startGame()
-        
-    }
-    
-    func startGame() {
         allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
         gameWord = allWords[0].uppercased()
         print("Gameword: \(gameWord)")
@@ -61,6 +75,8 @@ class ViewController: UIViewController {
         startingGameWordLabel = String(questionMarksArray)
         
         gameWordLabel.text = startingGameWordLabel
+        
+        livesLabel.text = "\(livesRemaining)"
     }
     
     func playingGame() {
@@ -85,7 +101,6 @@ class ViewController: UIViewController {
                     let veryUpdatedGameWordText = String(veryUpdatedGameWord)
                     gameWordLabel.text = veryUpdatedGameWordText
                 }
-                
             }
         }
     }
