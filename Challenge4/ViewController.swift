@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         print("Chosen letter character: \(chosenLetterCharacter)")
         
         playingGame()
+        
+        if !gameWord.contains(chosenLetterString) {
+            livesRemaining -= 1
+            livesLabel.text = "\(livesRemaining)"
+        }
     }
     
     var allWords = [String]()
@@ -36,6 +41,8 @@ class ViewController: UIViewController {
             }
         }
         
+        livesLabel.text = "\(livesRemaining)"
+        
         startGame()
         
     }
@@ -54,7 +61,6 @@ class ViewController: UIViewController {
         startingGameWordLabel = String(questionMarksArray)
         
         gameWordLabel.text = startingGameWordLabel
-        livesLabel.text = "\(livesRemaining)"
     }
     
     func playingGame() {
@@ -65,6 +71,8 @@ class ViewController: UIViewController {
         for letters in lettersArray {
             if letters == chosenLetterCharacter[0] {
                 let correctLetterPosition = lettersArray.index(of: chosenLetterCharacter[0])!
+                
+                lettersArray[correctLetterPosition] = "0" // This changes any already-selected letters to be '0', so that for any subsequent loops, they will not get selected again. This is because some words contain the same letter multiple times.
                 
                 if gameWordLabel.text == startingGameWordLabel {
                     updatedGameWord = questionMarksArray
@@ -77,6 +85,7 @@ class ViewController: UIViewController {
                     let veryUpdatedGameWordText = String(veryUpdatedGameWord)
                     gameWordLabel.text = veryUpdatedGameWordText
                 }
+                
             }
         }
     }
