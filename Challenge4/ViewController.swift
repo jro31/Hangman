@@ -6,6 +6,8 @@ class ViewController: UIViewController {
     @IBOutlet var gameWordLabel: UILabel!
     @IBOutlet var livesLabel: UILabel!
     
+    @IBOutlet var allButtons: [UIButton]!
+    
     var chosenLetterString = ""
     var chosenLetterCharacter = Array<Character>()
     
@@ -23,7 +25,7 @@ class ViewController: UIViewController {
         }
         
         sender.isEnabled = false // Disables the button once pressed
-        sender.backgroundColor = UIColor.clear // Makes the button invisible once pressed
+        sender.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3) // Fades the appearance of the button once pressed
         
         if !gameWordLabel.text!.contains("?") {
             let alert = UIAlertController(title: "Congratulations!", message: "You did it", preferredStyle: .alert)
@@ -32,7 +34,17 @@ class ViewController: UIViewController {
                 
                 self.startGame()
             }
-            
+            alert.addAction(playAgainButton)
+            present(alert, animated: true)
+        }
+        
+        if livesRemaining == 0 {
+            let alert = UIAlertController(title: gameWord, message: "Better luck next time!", preferredStyle: .alert)
+            let playAgainButton = UIAlertAction(title: "Play again", style: .default) {
+                (action:UIAlertAction!) in
+                
+                self.startGame()
+            }
             alert.addAction(playAgainButton)
             present(alert, animated: true)
         }
@@ -52,6 +64,11 @@ class ViewController: UIViewController {
     }
     
     func startGame() {
+        for buttons in allButtons {
+            buttons.isEnabled = true
+            buttons.backgroundColor = UIColor.lightGray.withAlphaComponent(1)
+        }
+        
         if let wordsPath = Bundle.main.path(forResource: "words", ofType: "txt") {
             if let words = try? String(contentsOfFile: wordsPath) {
                 allWords = words.components(separatedBy: "\n")

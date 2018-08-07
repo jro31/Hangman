@@ -304,6 +304,32 @@
                     <connections>
                         <outlet property="gameWordLabel" destination="m7W-l8-GFa" id="eAR-vV-RPi"/>
                         <outlet property="livesLabel" destination="IPT-qG-aw1" id="K8H-Bx-5u3"/>
+                        <outletCollection property="allButtons" destination="dss-5v-gRL" collectionClass="NSMutableArray" id="CAU-OG-sEc"/>
+                        <outletCollection property="allButtons" destination="k2x-aa-NCH" collectionClass="NSMutableArray" id="Y3k-3X-p6W"/>
+                        <outletCollection property="allButtons" destination="dV7-ks-NOZ" collectionClass="NSMutableArray" id="aqB-Nh-iLv"/>
+                        <outletCollection property="allButtons" destination="taG-cP-t0F" collectionClass="NSMutableArray" id="yHH-Z5-XIx"/>
+                        <outletCollection property="allButtons" destination="wAh-i2-xtL" collectionClass="NSMutableArray" id="HxX-09-5c0"/>
+                        <outletCollection property="allButtons" destination="Mgl-QB-eAM" collectionClass="NSMutableArray" id="dFz-XZ-g1R"/>
+                        <outletCollection property="allButtons" destination="vOg-9q-OS3" collectionClass="NSMutableArray" id="NSa-1H-AaH"/>
+                        <outletCollection property="allButtons" destination="lgY-o6-Ykv" collectionClass="NSMutableArray" id="ztR-SF-azy"/>
+                        <outletCollection property="allButtons" destination="hxM-yH-ZD8" collectionClass="NSMutableArray" id="HEh-3U-1RS"/>
+                        <outletCollection property="allButtons" destination="FGn-ac-mm8" collectionClass="NSMutableArray" id="ndg-VC-YMW"/>
+                        <outletCollection property="allButtons" destination="0dG-NK-R1y" collectionClass="NSMutableArray" id="Eef-bB-GoN"/>
+                        <outletCollection property="allButtons" destination="VMx-8l-rcy" collectionClass="NSMutableArray" id="dcF-Iy-mFT"/>
+                        <outletCollection property="allButtons" destination="2lD-VR-ZoH" collectionClass="NSMutableArray" id="eeG-oZ-exv"/>
+                        <outletCollection property="allButtons" destination="b1F-o6-Wo1" collectionClass="NSMutableArray" id="BWy-Nk-tkk"/>
+                        <outletCollection property="allButtons" destination="ozo-a7-tMv" collectionClass="NSMutableArray" id="SWS-hl-UX8"/>
+                        <outletCollection property="allButtons" destination="NSb-g2-ywS" collectionClass="NSMutableArray" id="uo7-ey-1ca"/>
+                        <outletCollection property="allButtons" destination="o4f-i1-00k" collectionClass="NSMutableArray" id="mKk-tW-SN4"/>
+                        <outletCollection property="allButtons" destination="HSB-7Z-tKu" collectionClass="NSMutableArray" id="QJB-YJ-IxW"/>
+                        <outletCollection property="allButtons" destination="woH-36-GcO" collectionClass="NSMutableArray" id="FIB-W3-MS4"/>
+                        <outletCollection property="allButtons" destination="6YC-XC-I3P" collectionClass="NSMutableArray" id="kQH-Tc-SZV"/>
+                        <outletCollection property="allButtons" destination="naf-Ye-3Ko" collectionClass="NSMutableArray" id="zbs-on-Fc1"/>
+                        <outletCollection property="allButtons" destination="5yP-hV-eVo" collectionClass="NSMutableArray" id="Lme-hO-zHM"/>
+                        <outletCollection property="allButtons" destination="df1-jq-c2T" collectionClass="NSMutableArray" id="obJ-KT-eOx"/>
+                        <outletCollection property="allButtons" destination="auT-ka-f6u" collectionClass="NSMutableArray" id="qGY-Ar-fWa"/>
+                        <outletCollection property="allButtons" destination="WD2-J9-PTQ" collectionClass="NSMutableArray" id="4mB-XO-TnS"/>
+                        <outletCollection property="allButtons" destination="kQg-Wg-iKa" collectionClass="NSMutableArray" id="YUi-W6-l9r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
