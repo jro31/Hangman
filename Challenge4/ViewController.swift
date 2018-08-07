@@ -22,6 +22,10 @@ class ViewController: UIViewController {
         if !gameWord.contains(chosenLetterString) {
             livesRemaining -= 1
             livesLabel.text = "\(livesRemaining)"
+            
+            if livesRemaining < 4 {
+                livesLabel.textColor = UIColor.red
+            }
         }
         
         sender.isEnabled = false // Disables the button once pressed
@@ -93,7 +97,9 @@ class ViewController: UIViewController {
         
         gameWordLabel.text = startingGameWordLabel
         
+        livesRemaining = 10
         livesLabel.text = "\(livesRemaining)"
+        livesLabel.textColor = UIColor.black
     }
     
     func playingGame() {
